@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07090d;
+  --color-ink-2: #0a0d12;
+  --color-card: #0d1117;
+  --color-line: #1e252e;
+  --color-edge: #1a2028;
+  --color-edge-2: #2a333d;
+  --color-text: #e8ecef;
+  --color-muted: #a9b2ba;
+  --color-dim: #8a949d;
+  --color-accent: #2ec4b6;
+  --color-accent-light: #7fe3d9;
+  --color-on-accent: #04201d;
+
+  --font-sora: var(--font-sora-face), sans-serif;
+  --font-body: var(--font-body-face), sans-serif;
+  --font-mono: var(--font-mono-face), monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+  a:hover {
+    color: var(--color-accent-light);
+  }
+}
+
+.scard {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.scard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+.sthumb {
+  transition: transform 0.3s ease;
+}
+.scard:hover .sthumb {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .scard,
+  .sthumb {
+    transition: none;
+  }
+  .scard:hover,
+  .scard:hover .sthumb {
+    transform: none;
+  }
+}
